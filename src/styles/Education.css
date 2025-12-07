@@ -1,0 +1,115 @@
+.education-container {
+  width: 100%;
+  padding: 50px 20px;
+  background-color: #f0f0f0;
+  min-height: 100vh;
+}
+
+.education-title {
+  text-align: center;
+  font-size: 45px;
+  color: #21325e;
+  margin-bottom: 50px;
+  position: relative;
+  padding-bottom: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.education-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(to right, #21325e, #deeb6b, #21325e);
+  border-radius: 2px;
+}
+
+/* Improve timeline styling */
+.vertical-timeline-element-content {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vertical-timeline-element-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+}
+
+.vertical-timeline-element-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #21325e;
+}
+
+.vertical-timeline-element-subtitle {
+  font-size: 18px;
+  color: rgba(33, 50, 94, 0.8);
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.vertical-timeline-element-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(33, 50, 94, 0.9);
+  margin-bottom: 15px;
+}
+
+/* Certificate Images Styling */
+.certificate-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.certificate-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive design */
+@media only screen and (max-width: 1170px) {
+  .education-title {
+    font-size: 35px;
+  }
+  
+  .vertical-timeline-element-title {
+    font-size: 20px;
+  }
+  
+  .vertical-timeline-element-subtitle {
+    font-size: 16px;
+  }
+  
+  .vertical-timeline-element-content p {
+    font-size: 14px;
+  }
+
+  .certificate-image {
+    max-width: 400px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .education-container {
+    padding: 30px 10px;
+  }
+  
+  .education-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  .certificate-image {
+    max-width: 100%;
+  }
+}
+

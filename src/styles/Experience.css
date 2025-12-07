@@ -1,0 +1,95 @@
+.experience-container {
+  width: 100%;
+  padding: 50px 20px;
+  background-color: #f0f0f0;
+  min-height: 100vh;
+}
+
+.experience-title {
+  text-align: center;
+  font-size: 45px;
+  color: #21325e;
+  margin-bottom: 50px;
+  position: relative;
+  padding-bottom: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.experience-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(to right, #21325e, #e9d35b, #21325e);
+  border-radius: 2px;
+}
+
+/* Improve timeline styling */
+.vertical-timeline-element-content {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vertical-timeline-element-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+}
+
+.vertical-timeline-element-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.vertical-timeline-element-subtitle {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.vertical-timeline-element-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 10px;
+}
+
+.vertical-timeline-element-content p strong {
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Responsive design */
+@media only screen and (max-width: 1170px) {
+  .experience-title {
+    font-size: 35px;
+  }
+  
+  .vertical-timeline-element-title {
+    font-size: 20px;
+  }
+  
+  .vertical-timeline-element-subtitle {
+    font-size: 16px;
+  }
+  
+  .vertical-timeline-element-content p {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .experience-container {
+    padding: 30px 10px;
+  }
+  
+  .experience-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+}
+
