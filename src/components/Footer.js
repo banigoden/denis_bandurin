@@ -1,11 +1,11 @@
 import React from "react";
-import InstagramIcon from "@material-ui/icons/Instagram";
-import TwitterIcon from "@material-ui/icons/Twitter";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import TwitterIcon from "@mui/icons-material/Twitter";
 import TelegramIcon from '@mui/icons-material/Telegram';
-import FacebookIcon from "@material-ui/icons/Facebook";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import EmailIcon from "@material-ui/icons/Email";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import EmailIcon from "@mui/icons-material/Email";
 import "../styles/Footer.css";
 
 function Footer() {
@@ -27,7 +27,7 @@ function Footer() {
         <a href="https://www.linkedin.com/in/denis--bandurin/" target="_blank" rel="noopener noreferrer">
           <LinkedInIcon />
         </a>
-        <a href="@Bandurin_Denis" target="_blank" rel="noopener noreferrer">
+        <a href="https://t.me/Bandurin_Denis" target="_blank" rel="noopener noreferrer">
           <TelegramIcon />
         </a>
         <a href="mailto:banigoden@gmail.com">
