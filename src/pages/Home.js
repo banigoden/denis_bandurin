@@ -101,23 +101,23 @@ function Home() {
           <InstagramIcon />
         </a>
         </div>
-        </div>
+      </div>
       </div>
       <div className={`aboutme ${isAboutVisible ? 'fade-in' : ''}`} ref={aboutmeRef}>
       <h1> About me</h1>
       <div className="aboutme-content">
         <div className="aboutme-text">
-          <h3>
-          {<TypeAnimation
-            sequence={[
-            "With nine years of experience in the IT industry, I decided to transition into DevOps. Since the beginning of 2018, I have been actively studying backend and frontend development on my own. I have completed several courses on the JavaRush and Helsinki University platforms, enhancing my skills in these areas. This year, I focused on learning Kubernetes and Docker to strengthen my proficiency in containerization and orchestration. Currently, I am pursuing the AWS course. You can explore my portfolio page, which showcases projects I have developed independently. My passion lies in professional growth as a DevOps with a backend stack, with the ultimate goal of becoming an Architect. Drawing from my experience, I possess a deep understanding of DevOps features and how they can contribute to successful project outcomes."
-            ]}
-            speed={70}
-            style={{ whiteSpace: 'pre-line', fontSize: '1em' }}
-            repeat={1}
-            />} 
-          </h3>
-        </div>
+      <h3>
+      {<TypeAnimation
+        sequence={[
+        "With nine years of experience in the IT industry, I decided to transition into DevOps. Since the beginning of 2018, I have been actively studying backend and frontend development on my own. I have completed several courses on the JavaRush and Helsinki University platforms, enhancing my skills in these areas. This year, I focused on learning Kubernetes and Docker to strengthen my proficiency in containerization and orchestration. Currently, I am pursuing the AWS course. You can explore my portfolio page, which showcases projects I have developed independently. My passion lies in professional growth as a DevOps with a backend stack, with the ultimate goal of becoming an Architect. Drawing from my experience, I possess a deep understanding of DevOps features and how they can contribute to successful project outcomes."
+        ]}
+        speed={70}
+        style={{ whiteSpace: 'pre-line', fontSize: '1em' }}
+        repeat={1}
+        />} 
+        </h3>
+      </div>
         <div className="video-container">
           <div className="video-wrapper">
             <video 

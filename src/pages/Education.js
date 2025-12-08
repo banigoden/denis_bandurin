@@ -11,7 +11,7 @@ function Education() {
   return (
     <div className="education-container">
       <h1 className="education-title">Education & Certifications</h1>
-      <VerticalTimeline lineColor="#aaa">
+    <VerticalTimeline lineColor="#aaa">
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
           date="2024"
@@ -23,27 +23,27 @@ function Education() {
           <h4 className="vertical-timeline-element-subtitle">[Institution/Platform]</h4>
           <p>[Description and details will be added here]</p>
         </VerticalTimelineElement>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          date="2010 - 2015"
+      <VerticalTimelineElement
+        className="vertical-timeline-element--work"
+        date="2010 - 2015"
           contentStyle={{ background: '#deeb6b', borderRadius: '15px', boxShadow: '0 5px 15px rgba(0,0,0,0.2)' }}
           iconStyle={{ background: '#deeb6b', color: '#fff' }}
-          icon={<SchoolIcon />}
-        >
-          <h3 className="vertical-timeline-element-title">Integrated Master: Security information of automated systems</h3>
-          <h4 className="vertical-timeline-element-subtitle">Volgograd University</h4>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          date="2018"
+        icon={<SchoolIcon />}
+      >
+        <h3 className="vertical-timeline-element-title">Integrated Master: Security information of automated systems</h3>
+        <h4 className="vertical-timeline-element-subtitle">Volgograd University</h4>
+      </VerticalTimelineElement>
+      <VerticalTimelineElement
+        className="vertical-timeline-element--work"
+        date="2018"
           contentStyle={{ background: '#deeb6b', borderRadius: '15px', boxShadow: '0 5px 15px rgba(0,0,0,0.2)' }}
-          iconStyle={{ background: '#deeb6b', color: '#fff' }}
-          icon={<SchoolIcon />}
-        >
-          <h3 className="vertical-timeline-element-title">Online training course (2 parts) on Java programming basics</h3>
-          <h4 className="vertical-timeline-element-subtitle">Helsinki University</h4>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
+        iconStyle={{ background: '#deeb6b', color: '#fff' }}
+        icon={<SchoolIcon />}
+      >
+        <h3 className="vertical-timeline-element-title">Online training course (2 parts) on Java programming basics</h3>
+        <h4 className="vertical-timeline-element-subtitle">Helsinki University</h4>
+     </VerticalTimelineElement>
+     <VerticalTimelineElement
           className="vertical-timeline-element--work"
           date="2020"
           contentStyle={{ background: '#deeb6b', borderRadius: '15px', boxShadow: '0 5px 15px rgba(0,0,0,0.2)' }}
