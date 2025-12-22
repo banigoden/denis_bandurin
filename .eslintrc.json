@@ -1,0 +1,35 @@
+{
+  "extends": ["react-app", "react-app/jest", "prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "warn",
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "react-hooks/exhaustive-deps": "warn",
+    "jsx-a11y/heading-has-content": "warn"
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2021": true,
+    "jest": true
+  },
+  "globals": {
+    "particlesJS": "readonly",
+    "Stats": "readonly"
+  },
+  "overrides": [
+    {
+      "files": ["src/helpers/particles.js"],
+      "globals": {
+        "particlesJS": "readonly",
+        "Stats": "readonly"
+      },
+      "rules": {
+        "no-undef": "off"
+      }
+    }
+  ]
+}

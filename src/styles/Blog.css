@@ -12,11 +12,11 @@
   margin-bottom: 50px;
   position: relative;
   padding-bottom: 15px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .blog-title::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -113,4 +113,3 @@
     font-size: 14px;
   }
 }
-

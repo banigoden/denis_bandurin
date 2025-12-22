@@ -9,26 +9,28 @@ function Projects() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const projectsElement = projectsRef.current;
+
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      rootMargin: "0px 0px -50px 0px",
     };
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
         }
       });
     }, observerOptions);
 
-    if (projectsRef.current) {
-      observer.observe(projectsRef.current);
+    if (projectsElement) {
+      observer.observe(projectsElement);
     }
 
     return () => {
-      if (projectsRef.current) {
-        observer.unobserve(projectsRef.current);
+      if (projectsElement) {
+        observer.unobserve(projectsElement);
       }
     };
   }, []);
@@ -36,16 +38,16 @@ function Projects() {
   return (
     <div className="projects">
       <h1 className="projects-title">My Personal Projects</h1>
-      <div 
-        className={`projectList ${isVisible ? 'visible' : ''}`} 
+      <div
+        className={`projectList ${isVisible ? "visible" : ""}`}
         ref={projectsRef}
       >
         {ProjectList.map((project, idx) => {
           return (
-            <ProjectItem 
-              key={idx} 
-              id={idx} 
-              name={project.name} 
+            <ProjectItem
+              key={idx}
+              id={idx}
+              name={project.name}
               image={project.image}
               skills={project.skills}
               delay={idx * 0.1}

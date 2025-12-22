@@ -22,7 +22,7 @@ function BlogPostDisplay() {
       <Link to="/blog" className="back-to-blog">
         <ArrowBackIcon /> Back to Blog
       </Link>
-      
+
       <div className="blog-post-header">
         <div className="blog-post-breadcrumb">
           <Link to="/">Home</Link> / <Link to="/blog">Blog</Link> / {post.title}
@@ -52,7 +52,7 @@ function BlogPostDisplay() {
 
         <div className="blog-results">
           <h2 className="results-title">Results Achieved</h2>
-          
+
           <div className="results-grid">
             <div className="results-category">
               <h3 className="results-category-title">Operational Excellence</h3>
@@ -62,7 +62,10 @@ function BlogPostDisplay() {
                     <span className="result-check">✓</span>
                     <div className="result-content">
                       <strong className="result-metric">{result.metric}</strong>
-                      <span className="result-description"> - {result.description}</span>
+                      <span className="result-description">
+                        {" "}
+                        - {result.description}
+                      </span>
                     </div>
                   </div>
                 ))}
@@ -77,7 +80,10 @@ function BlogPostDisplay() {
                     <span className="result-check">✓</span>
                     <div className="result-content">
                       <strong className="result-metric">{result.metric}</strong>
-                      <span className="result-description"> - {result.description}</span>
+                      <span className="result-description">
+                        {" "}
+                        - {result.description}
+                      </span>
                     </div>
                   </div>
                 ))}
@@ -91,4 +97,3 @@ function BlogPostDisplay() {
 }
 
 export default BlogPostDisplay;
-

@@ -1,10 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
 function ProjectItem({ image, name, id, skills, delay = 0 }) {
   const navigate = useNavigate();
-  
-  const skillsArray = skills ? skills.split(',').map(skill => skill.trim()) : [];
+
+  const skillsArray = skills
+    ? skills.split(",").map((skill) => skill.trim())
+    : [];
 
   return (
     <div
@@ -27,10 +30,14 @@ function ProjectItem({ image, name, id, skills, delay = 0 }) {
           {skillsArray.length > 0 && (
             <div className="projectItem-skills">
               {skillsArray.slice(0, 3).map((skill, idx) => (
-                <span key={idx} className="skill-badge">{skill}</span>
+                <span key={idx} className="skill-badge">
+                  {skill}
+                </span>
               ))}
               {skillsArray.length > 3 && (
-                <span className="skill-badge more">+{skillsArray.length - 3}</span>
+                <span className="skill-badge more">
+                  +{skillsArray.length - 3}
+                </span>
               )}
             </div>
           )}
@@ -39,5 +46,13 @@ function ProjectItem({ image, name, id, skills, delay = 0 }) {
     </div>
   );
 }
+
+ProjectItem.propTypes = {
+  image: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  skills: PropTypes.string.isRequired,
+  delay: PropTypes.number,
+};
 
 export default ProjectItem;

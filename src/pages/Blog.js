@@ -10,11 +10,7 @@ function Blog() {
       <div className="blog-list">
         {BlogList.map((post, idx) => {
           return (
-            <Link 
-              key={idx} 
-              to={`/blog/${post.id}`} 
-              className="blog-item"
-            >
+            <Link key={idx} to={`/blog/${post.id}`} className="blog-item">
               <div className="blog-item-content">
                 <h2 className="blog-item-title">{post.title}</h2>
                 <p className="blog-item-excerpt">{post.excerpt}</p>
@@ -32,4 +28,3 @@ function Blog() {
 }
 
 export default Blog;
-

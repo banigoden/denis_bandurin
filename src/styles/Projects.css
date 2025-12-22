@@ -17,14 +17,14 @@
   margin-bottom: 50px;
   position: relative;
   padding-bottom: 15px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   opacity: 0;
   transform: translateY(-30px);
   animation: fadeInDown 0.8s ease-out forwards;
 }
 
 .projects-title::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -57,7 +57,9 @@
   padding: 20px;
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
 }
 
 .projectList.visible {
