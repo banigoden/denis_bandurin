@@ -1,7 +1,11 @@
 .home {
   width: 100%;
   align-items: center;
-  font-family: "Arial", sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   /* color: #3e497a; */
 }
 
@@ -18,6 +22,43 @@
   color: #f0f0f0;
   position: relative;
   overflow: hidden;
+  /* Full-screen background image */
+  /* To use your own background image:
+     1. Add your image to src/assets/ (e.g., background.jpg)
+     2. Import it in Home.js: import bgImage from "../assets/background.jpg";
+     3. Add inline style to .about div: style={{backgroundImage: `linear-gradient(to bottom, rgba(33, 50, 94, 0.7), rgba(33, 50, 94, 0.6)), url(${bgImage})`}}
+  */
+  background-image: linear-gradient(
+    135deg,
+    rgba(33, 50, 94, 0.9) 0%,
+    rgba(26, 40, 71, 0.85) 50%,
+    rgba(15, 22, 37, 0.9) 100%
+  );
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Overlay for better text readability */
+.about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(33, 50, 94, 0.2) 0%,
+    rgba(33, 50, 94, 0.4) 100%
+  );
+  z-index: 0;
+}
+
+.about > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Floating animation for profile image */
@@ -32,10 +73,14 @@
   border-radius: 50%;
   object-fit: cover;
   border: 5px solid #e9d35b;
-  box-shadow: 0 10px 30px rgba(233, 211, 91, 0.3);
+  box-shadow:
+    0 10px 30px rgba(233, 211, 91, 0.5),
+    0 0 40px rgba(233, 211, 91, 0.2);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
 }
 
 .myimage img:hover {
@@ -74,20 +119,36 @@
 }
 
 .about h1 {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 60px;
+  font-weight: 700;
   color: #e9d35b;
   height: 190px;
   margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow:
+    3px 3px 6px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(233, 211, 91, 0.3);
+  letter-spacing: 2px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .about h2 {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 40px;
+  font-weight: 600;
   color: #e9d35b;
   height: 190px;
   margin-bottom: 20px;
+  text-shadow:
+    2px 2px 4px rgba(0, 0, 0, 0.5),
+    0 0 15px rgba(233, 211, 91, 0.2);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .about .prompt {
@@ -171,7 +232,9 @@
 
 /* About Me Section */
 .aboutme {
-  font-family: "Times New Roman", Times, serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 25px;
   margin: 50px;
   color: rgb(45, 33, 33);
@@ -183,6 +246,8 @@
   transition:
     opacity 0.8s ease-out,
     transform 0.8s ease-out;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .aboutme.fade-in {

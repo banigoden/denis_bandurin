@@ -46,7 +46,11 @@
   font-size: 42px;
   color: #21325e;
   margin-bottom: 20px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   line-height: 1.2;
 }
 

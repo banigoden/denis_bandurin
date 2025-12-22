@@ -9,6 +9,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import { TypeAnimation } from "react-type-animation";
 import "../styles/Home.css";
 import photo from "../assets/myphoto.png";
+import backgroundImage from "../assets/background.jpg";
 
 function Home() {
   const aboutmeRef = useRef(null);
@@ -60,7 +61,12 @@ function Home() {
 
   return (
     <div className="home">
-      <div className="about">
+      <div
+        className="about"
+        style={{
+          backgroundImage: `linear-gradient(to bottom, rgba(33, 50, 94, 0.4), rgba(33, 50, 94, 0.3)), url(${backgroundImage})`,
+        }}
+      >
         <div className="myimage">
           <img src={photo} alt="Denis Bandurin" />
         </div>
