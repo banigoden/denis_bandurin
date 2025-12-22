@@ -3,12 +3,17 @@
   min-height: calc(100vh - 100px);
   padding: 50px 20px;
   background-color: #f0f0f0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
 }
 
 .blog-title {
   text-align: center;
   font-size: 45px;
-  color: #21325e;
+  color: #f0f0f0;
   margin-bottom: 50px;
   position: relative;
   padding-bottom: 15px;
@@ -17,6 +22,8 @@
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  z-index: 1;
 }
 
 .blog-title::after {
@@ -27,8 +34,9 @@
   transform: translateX(-50%);
   width: 100px;
   height: 3px;
-  background: linear-gradient(to right, #21325e, #e9d35b, #21325e);
+  background: linear-gradient(to right, #e9d35b, #f0f0f0, #e9d35b);
   border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(233, 211, 91, 0.6);
 }
 
 .blog-list {
@@ -37,6 +45,8 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
+  position: relative;
+  z-index: 1;
 }
 
 .blog-item {

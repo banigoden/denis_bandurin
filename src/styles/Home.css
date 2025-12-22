@@ -18,46 +18,10 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #21325e;
+  background-color: transparent;
   color: #f0f0f0;
   position: relative;
   overflow: hidden;
-  /* Full-screen background image */
-  /* To use your own background image:
-     1. Add your image to src/assets/ (e.g., background.jpg)
-     2. Import it in Home.js: import bgImage from "../assets/background.jpg";
-     3. Add inline style to .about div: style={{backgroundImage: `linear-gradient(to bottom, rgba(33, 50, 94, 0.7), rgba(33, 50, 94, 0.6)), url(${bgImage})`}}
-  */
-  background-image: linear-gradient(
-    135deg,
-    rgba(33, 50, 94, 0.9) 0%,
-    rgba(26, 40, 71, 0.85) 50%,
-    rgba(15, 22, 37, 0.9) 100%
-  );
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-/* Overlay for better text readability */
-.about::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(
-    circle at center,
-    rgba(33, 50, 94, 0.2) 0%,
-    rgba(33, 50, 94, 0.4) 100%
-  );
-  z-index: 0;
-}
-
-.about > * {
-  position: relative;
   z-index: 1;
 }
 
@@ -128,8 +92,9 @@
   height: 190px;
   margin-bottom: 20px;
   text-shadow:
-    3px 3px 6px rgba(0, 0, 0, 0.5),
-    0 0 20px rgba(233, 211, 91, 0.3);
+    3px 3px 6px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(233, 211, 91, 0.5),
+    0 0 40px rgba(0, 0, 0, 0.5);
   letter-spacing: 2px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -145,8 +110,9 @@
   height: 190px;
   margin-bottom: 20px;
   text-shadow:
-    2px 2px 4px rgba(0, 0, 0, 0.5),
-    0 0 15px rgba(233, 211, 91, 0.2);
+    2px 2px 4px rgba(0, 0, 0, 0.8),
+    0 0 15px rgba(233, 211, 91, 0.4),
+    0 0 30px rgba(0, 0, 0, 0.5);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -230,14 +196,34 @@
   }
 }
 
-/* About Me Section */
+/* Fullscreen Video Background */
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.about-video-fullscreen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* About Me Section - Overlay on Video */
 .aboutme {
   font-family:
     -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 25px;
   margin: 50px;
-  color: rgb(45, 33, 33);
+  color: #f0f0f0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -248,6 +234,12 @@
     transform 0.8s ease-out;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  padding: 100px 20px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
 }
 
 .aboutme.fade-in {
@@ -257,10 +249,11 @@
 
 .aboutme h1 {
   font-size: 45px;
-  color: #21325e;
+  color: #f0f0f0;
   margin-bottom: 30px;
   position: relative;
   padding-bottom: 15px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 .aboutme h1::after {
@@ -271,8 +264,9 @@
   transform: translateX(-50%);
   width: 100px;
   height: 3px;
-  background: linear-gradient(to right, #21325e, #e9d35b, #21325e);
+  background: linear-gradient(to right, #e9d35b, #f0f0f0, #e9d35b);
   border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(233, 211, 91, 0.6);
 }
 
 .aboutme-content {
@@ -292,10 +286,15 @@
 .aboutme h3 {
   font-size: 25px;
   font-style: italic;
-  color: #696447;
+  color: #f0f0f0;
   margin-bottom: 30px;
   line-height: 1.8;
   text-align: center;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
 }
 
 /* Video Section Styling */
@@ -304,6 +303,45 @@
   max-width: 1000px;
   margin: 0 auto;
   animation: fadeInScale 0.8s ease-out 0.5s both;
+  transition: all 0.5s ease-in-out;
+}
+
+/* Video fullscreen when in viewport */
+.video-container.video-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  z-index: 9999;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  animation: none;
+}
+
+.video-container.video-fullscreen .video-wrapper {
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  max-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-container.video-fullscreen .about-video {
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  max-height: 100vh;
+  min-height: 100vh;
+  object-fit: contain;
+  border-radius: 0;
 }
 
 .video-wrapper {
@@ -330,6 +368,47 @@
 .about-video:hover {
   transform: scale(1.01);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Fullscreen video styles - Cross-browser support */
+.about-video:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  border-radius: 0;
+  object-fit: contain;
+  background: #000;
+}
+
+.about-video:-webkit-full-screen {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  border-radius: 0;
+  object-fit: contain;
+  background: #000;
+}
+
+.about-video:-moz-full-screen {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  border-radius: 0;
+  object-fit: contain;
+  background: #000;
+}
+
+.about-video:-ms-fullscreen {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  border-radius: 0;
+  object-fit: contain;
+  background: #000;
 }
 
 .fullscreen-btn {
@@ -395,6 +474,11 @@
   transition:
     opacity 0.8s ease-out,
     transform 0.8s ease-out;
+  position: relative;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  min-height: 100vh;
 }
 
 .skills.fade-in {
@@ -404,10 +488,11 @@
 
 .skills h1 {
   font-size: 45px;
-  color: #21325e;
+  color: #f0f0f0;
   margin-bottom: 40px;
   position: relative;
   padding-bottom: 15px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 .skills h1::after {
@@ -418,8 +503,9 @@
   transform: translateX(-50%);
   width: 100px;
   height: 3px;
-  background: linear-gradient(to right, #21325e, #e9d35b, #21325e);
+  background: linear-gradient(to right, #e9d35b, #f0f0f0, #e9d35b);
   border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(233, 211, 91, 0.6);
 }
 
 .skills .list {
