@@ -9,11 +9,11 @@ import EmailIcon from "@mui/icons-material/Email";
 import { TypeAnimation } from "react-type-animation";
 import "../styles/Home.css";
 import photo from "../assets/myphoto.png";
-import backgroundImage from "../assets/background.jpg";
 
 function Home() {
   const aboutmeRef = useRef(null);
   const skillsRef = useRef(null);
+  const videoRef = useRef(null);
   const [isAboutVisible, setIsAboutVisible] = useState(false);
   const [isSkillsVisible, setIsSkillsVisible] = useState(false);
 
@@ -59,14 +59,22 @@ function Home() {
     };
   }, []);
 
+  // Video always fullscreen background effect
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Mute for autoplay (required by browsers)
+    video.muted = true;
+    // Ensure video is playing
+    video.play().catch(() => {
+      // Silently handle autoplay errors
+    });
+  }, []);
+
   return (
     <div className="home">
-      <div
-        className="about"
-        style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(33, 50, 94, 0.4), rgba(33, 50, 94, 0.3)), url(${backgroundImage})`,
-        }}
-      >
+      <div className="about">
         <div className="myimage">
           <img src={photo} alt="Denis Bandurin" />
         </div>
@@ -142,6 +150,24 @@ function Home() {
           </div>
         </div>
       </div>
+      {/* Fullscreen video background */}
+      <div className="video-background">
+        <video
+          ref={videoRef}
+          className="about-video-fullscreen"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+        >
+          <source src="/videos/about-me.mp4" type="video/mp4" />
+          <source src="/videos/about-me.webm" type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      {/* Text overlay on video */}
       <div
         className={`aboutme ${isAboutVisible ? "fade-in" : ""}`}
         ref={aboutmeRef}
@@ -161,54 +187,6 @@ function Home() {
                 />
               }
             </h3>
-          </div>
-          <div className="video-container">
-            <div className="video-wrapper">
-              <video
-                className="about-video"
-                controls
-                controlsList="nodownload"
-                poster=""
-                preload="metadata"
-              >
-                <source src="/videos/about-me.mp4" type="video/mp4" />
-                <source src="/videos/about-me.webm" type="video/webm" />
-                Your browser does not support the video tag.
-              </video>
-              <button
-                className="fullscreen-btn"
-                onClick={(e) => {
-                  const video = e.target.previousElementSibling;
-                  if (video.requestFullscreen) {
-                    video.requestFullscreen();
-                  } else if (video.webkitRequestFullscreen) {
-                    video.webkitRequestFullscreen();
-                  } else if (video.msRequestFullscreen) {
-                    video.msRequestFullscreen();
-                  }
-                }}
-                aria-label="Fullscreen"
-              >
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M8 3H5C3.89543 3 3 3.89543 3 5V8M21 8V5C21 3.89543 20.1046 3 19 3H16M16 21H19C20.1046 21 21 20.1046 21 19V16M3 16V19C3 20.1046 3.89543 21 5 21H8"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </button>
-            </div>
-            <p className="video-note">
-              Upload your video to the <code>public/videos/</code> folder and
-              name it <code>about-me.mp4</code>
-            </p>
           </div>
         </div>
       </div>

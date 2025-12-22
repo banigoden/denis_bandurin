@@ -2,10 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { BlogList } from "../helpers/BlogList";
 import "../styles/Blog.css";
+import backgroundImage from "../assets/background.jpg";
 
 function Blog() {
   return (
-    <div className="blog">
+    <div
+      className="blog"
+      style={{
+        backgroundImage: `linear-gradient(to bottom, rgba(33, 50, 94, 0.4), rgba(33, 50, 94, 0.3)), url(${backgroundImage})`,
+      }}
+    >
       <h1 className="blog-title">Blog</h1>
       <div className="blog-list">
         {BlogList.map((post, idx) => {
