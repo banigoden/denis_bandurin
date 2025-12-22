@@ -1,7 +1,29 @@
 # Getting Started with Create React App
+
 npm install
 npm start
 npx npm-check-updates -u
+
+Method 1: Keyboard shortcut (if running in terminal)
+If npm start is running in your terminal:
+Press Ctrl + C (or Cmd + C on Mac)
+This stops the server
+Method 2: Find and kill the process
+If the server is running in the background:
+
+# Find the process
+
+ps aux | grep "craco start" | grep -v grep
+
+# Kill it (replace PID with the actual process ID)
+
+kill -9 <PID>
+
+# Or kill all craco/npm processes at once
+
+pkill -f "craco start"
+pkill -f "npm start"
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
