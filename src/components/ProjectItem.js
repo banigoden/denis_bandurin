@@ -3,8 +3,10 @@ import { useNavigate } from "react-router-dom";
 
 function ProjectItem({ image, name, id, skills, delay = 0 }) {
   const navigate = useNavigate();
-  
-  const skillsArray = skills ? skills.split(',').map(skill => skill.trim()) : [];
+
+  const skillsArray = skills
+    ? skills.split(",").map((skill) => skill.trim())
+    : [];
 
   return (
     <div
@@ -27,10 +29,14 @@ function ProjectItem({ image, name, id, skills, delay = 0 }) {
           {skillsArray.length > 0 && (
             <div className="projectItem-skills">
               {skillsArray.slice(0, 3).map((skill, idx) => (
-                <span key={idx} className="skill-badge">{skill}</span>
+                <span key={idx} className="skill-badge">
+                  {skill}
+                </span>
               ))}
               {skillsArray.length > 3 && (
-                <span className="skill-badge more">+{skillsArray.length - 3}</span>
+                <span className="skill-badge more">
+                  +{skillsArray.length - 3}
+                </span>
               )}
             </div>
           )}

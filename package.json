@@ -31,15 +31,6 @@
     "quality": "npm run lint && npm run format:check && npm run test -- --watchAll=false --passWithNoTests",
     "prepare": "husky"
   },
-  "lint-staged": {
-    "*.{js,jsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{json,css,md}": [
-      "prettier --write"
-    ]
-  },
   "engines": {
     "node": ">=24.0.0",
     "npm": ">=10.0.0"

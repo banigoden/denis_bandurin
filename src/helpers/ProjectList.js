@@ -22,12 +22,14 @@ export const ProjectList = [
     name: "Pet clinic application",
     image: Proj7,
     skills: "Java, AWS, EC2, Maven, Docker, Docker Compose, Terraform",
-    githubUrl: "https://github.com/banigoden/microservices-with-db-on-dev-server",
+    githubUrl:
+      "https://github.com/banigoden/microservices-with-db-on-dev-server",
   },
   {
     name: "Jenkins-server via Terraform",
     image: Proj4,
-    skills: "Jenkins, Terraform, Bash script, Docker, Git, AWS EC2, Route53, SecurityAccess",
+    skills:
+      "Jenkins, Terraform, Bash script, Docker, Git, AWS EC2, Route53, SecurityAccess",
     githubUrl: "https://github.com/banigoden/Jenkins-server",
   },
   {

@@ -11,11 +11,11 @@ function Projects() {
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      rootMargin: "0px 0px -50px 0px",
     };
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
         }
@@ -36,16 +36,16 @@ function Projects() {
   return (
     <div className="projects">
       <h1 className="projects-title">My Personal Projects</h1>
-      <div 
-        className={`projectList ${isVisible ? 'visible' : ''}`} 
+      <div
+        className={`projectList ${isVisible ? "visible" : ""}`}
         ref={projectsRef}
       >
         {ProjectList.map((project, idx) => {
           return (
-            <ProjectItem 
-              key={idx} 
-              id={idx} 
-              name={project.name} 
+            <ProjectItem
+              key={idx}
+              id={idx}
+              name={project.name}
               image={project.image}
               skills={project.skills}
               delay={idx * 0.1}
