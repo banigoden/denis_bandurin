@@ -46,7 +46,7 @@ function Experience() {
           <h3 className="vertical-timeline-element-title">
             Self-employed, Freelance DevOps
           </h3>
-          <h4 className="vertical-timeline-element-subtitle"></h4>
+          <h4 className="vertical-timeline-element-subtitle">Remote</h4>
           <p>
             Configured AWS infrastructure using Terraform, creating
             infrastructure-as-code (IaC) templates to provision and manage

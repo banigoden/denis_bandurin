@@ -17,6 +17,9 @@ function Home() {
   const [isSkillsVisible, setIsSkillsVisible] = useState(false);
 
   useEffect(() => {
+    const aboutmeElement = aboutmeRef.current;
+    const skillsElement = skillsRef.current;
+
     const observerOptions = {
       threshold: 0.1,
       rootMargin: "0px 0px -100px 0px",
@@ -38,19 +41,19 @@ function Home() {
       });
     }, observerOptions);
 
-    if (aboutmeRef.current) {
-      aboutObserver.observe(aboutmeRef.current);
+    if (aboutmeElement) {
+      aboutObserver.observe(aboutmeElement);
     }
-    if (skillsRef.current) {
-      skillsObserver.observe(skillsRef.current);
+    if (skillsElement) {
+      skillsObserver.observe(skillsElement);
     }
 
     return () => {
-      if (aboutmeRef.current) {
-        aboutObserver.unobserve(aboutmeRef.current);
+      if (aboutmeElement) {
+        aboutObserver.unobserve(aboutmeElement);
       }
-      if (skillsRef.current) {
-        skillsObserver.unobserve(skillsRef.current);
+      if (skillsElement) {
+        skillsObserver.unobserve(skillsElement);
       }
     };
   }, []);

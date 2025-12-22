@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
 function ProjectItem({ image, name, id, skills, delay = 0 }) {
@@ -45,5 +46,13 @@ function ProjectItem({ image, name, id, skills, delay = 0 }) {
     </div>
   );
 }
+
+ProjectItem.propTypes = {
+  image: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  skills: PropTypes.string.isRequired,
+  delay: PropTypes.number,
+};
 
 export default ProjectItem;

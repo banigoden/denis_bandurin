@@ -9,6 +9,8 @@ function Projects() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const projectsElement = projectsRef.current;
+
     const observerOptions = {
       threshold: 0.1,
       rootMargin: "0px 0px -50px 0px",
@@ -22,13 +24,13 @@ function Projects() {
       });
     }, observerOptions);
 
-    if (projectsRef.current) {
-      observer.observe(projectsRef.current);
+    if (projectsElement) {
+      observer.observe(projectsElement);
     }
 
     return () => {
-      if (projectsRef.current) {
-        observer.unobserve(projectsRef.current);
+      if (projectsElement) {
+        observer.unobserve(projectsElement);
       }
     };
   }, []);
