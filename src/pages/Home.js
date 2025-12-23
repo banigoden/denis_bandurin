@@ -73,14 +73,10 @@ function Home() {
     const playVideo = () => {
       const playPromise = video.play();
       if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            // Video is playing
-          })
-          .catch((error) => {
-            // Autoplay was prevented - this is normal on some mobile browsers
-            console.log("Video autoplay prevented:", error);
-          });
+        playPromise.catch(() => {
+          // Autoplay was prevented - this is normal on some mobile browsers
+          // Silently handle autoplay prevention
+        });
       }
     };
 
@@ -101,9 +97,8 @@ function Home() {
 
     // Handle video loading errors
     const handleError = () => {
-      console.error(
-        "Video failed to load. Check if file exists at /videos/about-me.MP4"
-      );
+      // Video failed to load - silently handle error
+      // Check browser console for details if needed
     };
 
     video.addEventListener("error", handleError);
