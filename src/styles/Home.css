@@ -205,6 +205,9 @@
   height: 100vh;
   z-index: 0;
   overflow: hidden;
+  /* Prevent mobile browser address bar issues */
+  min-height: 100%;
+  min-height: -webkit-fill-available;
 }
 
 .about-video-fullscreen {
@@ -214,6 +217,11 @@
   position: absolute;
   top: 0;
   left: 0;
+  /* Ensure video covers entire viewport */
+  min-width: 100%;
+  min-height: 100%;
+  /* Center video if aspect ratio doesn't match */
+  object-position: center;
 }
 
 /* About Me Section - Overlay on Video */
@@ -581,47 +589,102 @@
 
 /* Responsive Design */
 @media only screen and (max-width: 600px) {
+  /* Fix mobile viewport height issues */
+  .about {
+    height: 100vh;
+    height: -webkit-fill-available;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+
   .about h1 {
     font-size: 40px;
     height: auto;
+    margin-bottom: 15px;
   }
 
   .about h2 {
     font-size: 30px;
     height: auto;
+    margin-bottom: 15px;
   }
 
   .about .prompt {
     margin-top: 10px;
     font-size: 20px;
-    width: 80%;
+    width: 90%;
+    padding: 0 10px;
+  }
+
+  .myimage {
+    margin-bottom: 15px;
   }
 
   .myimage img {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
+  }
+
+  .social-icons {
+    margin-top: 20px;
+    gap: 10px;
   }
 
   .social-link {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
   }
 
   .social-link svg {
-    font-size: 24px;
+    font-size: 22px;
+  }
+
+  /* Video background mobile fixes */
+  .video-background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    height: -webkit-fill-available;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+
+  .about-video-fullscreen {
+    width: 100vw;
+    height: 100vh;
+    height: -webkit-fill-available;
+    min-width: 100vw;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    object-fit: cover;
+  }
+
+  /* About me and skills sections mobile */
+  .aboutme {
+    padding: 60px 15px;
+    margin: 0;
+    min-height: auto;
   }
 
   .aboutme h1,
   .skills h1 {
-    font-size: 35px;
+    font-size: 32px;
+    margin-bottom: 20px;
   }
 
   .aboutme h3 {
-    font-size: 20px;
+    font-size: 18px;
+    padding: 20px 15px;
+    line-height: 1.6;
   }
 
   .aboutme-content {
-    gap: 30px;
+    gap: 20px;
+  }
+
+  .skills {
+    padding: 50px 15px;
+    min-height: auto;
   }
 
   .video-container {
@@ -653,10 +716,35 @@
   }
 
   .skills .item h2 {
-    font-size: 26px;
+    font-size: 24px;
   }
 
   .skills .item span {
-    font-size: 18px;
+    font-size: 16px;
+  }
+}
+
+/* Additional mobile optimizations for smaller screens */
+@media only screen and (max-width: 400px) {
+  .about h1 {
+    font-size: 32px;
+  }
+
+  .about h2 {
+    font-size: 24px;
+  }
+
+  .myimage img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .aboutme h1,
+  .skills h1 {
+    font-size: 28px;
+  }
+
+  .aboutme h3 {
+    font-size: 16px;
   }
 }
