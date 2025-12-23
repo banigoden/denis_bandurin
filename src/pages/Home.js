@@ -64,12 +64,55 @@ function Home() {
     const video = videoRef.current;
     if (!video) return;
 
-    // Mute for autoplay (required by browsers)
+    // Set video attributes for better mobile support
     video.muted = true;
-    // Ensure video is playing
-    video.play().catch(() => {
-      // Silently handle autoplay errors
+    video.setAttribute("playsinline", "true");
+    video.setAttribute("webkit-playsinline", "true");
+
+    // Function to play video
+    const playVideo = () => {
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            // Video is playing
+          })
+          .catch((error) => {
+            // Autoplay was prevented - this is normal on some mobile browsers
+            console.log("Video autoplay prevented:", error);
+          });
+      }
+    };
+
+    // Try to play immediately
+    playVideo();
+
+    // Also try after user interaction (for mobile browsers)
+    const handleUserInteraction = () => {
+      playVideo();
+      document.removeEventListener("touchstart", handleUserInteraction);
+      document.removeEventListener("click", handleUserInteraction);
+    };
+
+    document.addEventListener("touchstart", handleUserInteraction, {
+      once: true,
     });
+    document.addEventListener("click", handleUserInteraction, { once: true });
+
+    // Handle video loading errors
+    const handleError = () => {
+      console.error(
+        "Video failed to load. Check if file exists at /videos/about-me.MP4"
+      );
+    };
+
+    video.addEventListener("error", handleError);
+
+    return () => {
+      video.removeEventListener("error", handleError);
+      document.removeEventListener("touchstart", handleUserInteraction);
+      document.removeEventListener("click", handleUserInteraction);
+    };
   }, []);
 
   return (
@@ -160,7 +203,9 @@ function Home() {
           muted
           playsInline
           preload="auto"
+          webkit-playsinline="true"
         >
+          <source src="/videos/about-me.MP4" type="video/mp4" />
           <source src="/videos/about-me.mp4" type="video/mp4" />
           <source src="/videos/about-me.webm" type="video/webm" />
           Your browser does not support the video tag.
